@@ -1,0 +1,194 @@
+// Catalog styles.
+// ===============
+
+.view-sl7-shop-extra-output,
+.view-shop,
+.view-catalog {
+  .row {
+    @include span(full);
+    margin-bottom: gutter();
+
+    .column {
+      @include susy-breakpoint($phone-only-breakpoint) {
+        @include span(full);
+      }
+
+      @include susy-breakpoint($tablet-only-breakpoint) {
+        @include span(1 of 3);
+
+        &:nth-child(3n) {
+          @include last;
+        }
+      }
+
+      @include susy-breakpoint($big-screen-up-breakpoint) {
+        @include span(1 of 4);
+
+        &:nth-child(4n) {
+          @include last;
+        }
+      }
+    }
+  }
+}
+
+// Product teaser.
+
+.product.teaser {
+  @include transition(all 0.3s ease-out);
+  border: 1px solid $grey-color-border;
+  position: relative;
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .field-field-product-photo {
+    width: 100%;
+    padding: 20px 20px 0;
+    box-sizing: border-box;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  h3,
+  .field-commerce-price {
+    margin-top: 15px;
+  }
+
+  h3 {
+    font-size: 20px;
+    height: 20px;
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+  }
+
+  .field-commerce-price {
+    font-weight: 700;
+  }
+
+  .button {
+    margin: 15px 0;
+  }
+}
+
+// Product full.
+
+.commerce-product-field {
+  a {
+    display: block;
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+
+  ul.photos {
+    > li {
+      @include span(1 of 4 1/10);
+      margin-top: 5px;
+
+      &:nth-child(4n) {
+        @include last;
+      }
+    }
+  }
+}
+
+.product.full {
+  @include break;
+  @include susy-clearfix;
+
+  .column {
+    @include span(1 of 2 1/10);
+
+    &:nth-child(2n) {
+      @include last;
+    }
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      @include span(full);
+    }
+  }
+
+  .description {
+    > .wrapper {
+      @include susy-clearfix;
+
+      .column {
+        margin-bottom: 15px;
+
+        @include susy-breakpoint($tablet-only-breakpoint) {
+          @include span(full);
+        }
+      }
+    }
+  }
+
+  .commerce-product-sku-label {
+    @include susy-clearfix;
+    color: black;
+  }
+
+  .field-name-commerce-price {
+    .field-items {
+      font-weight: 700;
+    }
+  }
+
+  input[type=submit] {
+    width: 100%;
+  }
+}
+
+// Catalog teaser.
+
+.category.teaser {
+  text-align: center;
+
+  a {
+    display: block;
+    min-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+
+  h3 {
+    margin: 15px 0;
+    font-size: 20px;
+  }
+}
+
+// If not append ds template.
+
+.view-catalog {
+  .field-item {
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    h3.title {
+      font-size: 20px;
+      text-align: center;
+      display: block;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+    }
+  }
+}

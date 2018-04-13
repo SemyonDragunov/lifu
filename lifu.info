@@ -1,0 +1,30 @@
+name = Лайф
+description = Дизайн Лайф для сайта Druta.
+package = Core
+core = 7.x
+
+stylesheets[all][] = css/lifu.css
+stylesheets[all][] = color/color.css
+stylesheets[all][] = css/fontello.css
+stylesheets[all][] = css/fontello-codes.css
+stylesheets[all][] = css/fontello-embedded.css
+
+dependencies[] = color
+
+; Regions.
+regions[header] = Шапка
+regions[action] = Действия
+regions[search] = Поиск
+regions[help] = Help
+regions[content] = Content
+regions[front] = Главная страница
+regions[sidebar_first] = Sidebar first
+regions[over_footer] = Над подвалом
+regions[footer_left] = Подвал (лево)
+regions[footer_center] = Подвал (центр)
+regions[footer_right] = Подвал (право)
+regions[footer] = Footer
+
+; This two regions is required by Drupal Core. Don't remove them, they not display in block list.
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom

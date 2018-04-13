@@ -1,0 +1,70 @@
+// Typography.
+// ===========
+
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+  margin: 0 0 gutter();
+
+  &.element-invisible {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+h1 {
+  font-size: 48px;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 40px;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    font-size: 24px;
+  }
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+p {
+  margin-bottom: 15px;
+  line-height: 24px;
+}
+
+a {
+  @include transition(all 0.3s ease-in-out);
+  color: $text-color;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+img {
+  vertical-align: bottom;
+}
+
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted $grey-color-border;
+}

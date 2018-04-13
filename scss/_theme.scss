@@ -1,0 +1,500 @@
+// Theme style.
+// ============
+
+body {
+  background-color: white;
+  font: $font-size Roboto !important;
+  color: $text-color;
+  letter-spacing: 0.5px;
+  overflow-x: hidden;
+}
+
+main {
+  h2 {
+    &.title {
+      text-align: center;
+    }
+  }
+}
+
+.container {
+  @include gutters(inside);
+  @include container(70em);
+}
+
+.region-sidebar-first {
+  @include span(1 of 4 1/10);
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    @include span(full);
+  }
+
+  @include susy-breakpoint($tablet-only-breakpoint) {
+    @include span(full);
+  }
+}
+
+main {
+  body.no-sidebars & {
+    @include span(full);
+  }
+
+  body.one-sidebar & {
+    @include span(3 of 4 1/10 last);
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      @include span(full);
+    }
+
+    @include susy-breakpoint($tablet-only-breakpoint) {
+      @include span(full);
+    }
+  }
+}
+
+.breadcrumb {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+ul {
+  &.list-inline {
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+.clearfix {
+  @include susy-clearfix;
+}
+
+.sl7-copyright {
+  @include span(full);
+  @include susy-clearfix;
+  text-align: right;
+}
+
+.content-center {
+  @include susy-clearfix;
+  text-align: center;
+  margin: 0 0 gutter();
+}
+
+.text-center {
+  text-align: center;
+}
+
+.entity-property,
+.field {
+  margin-bottom: 15px;
+
+  .entity-property-label,
+  .field-label {
+    color: black;
+  }
+}
+
+// Block
+
+footer,
+section#over-footer,
+.header_wrapper,
+.region-sidebar-first,
+.region-sidebar-second {
+  h2 {
+    font-size: 20px;
+  }
+}
+
+.region-sidebar-first,
+.region-sidebar-second {
+  .block {
+    border: 1px solid $grey-color-border;
+    margin-bottom: 15px;
+
+    h2 {
+      padding: 15px 20px;
+      text-transform: uppercase;
+      color: white;
+      font-weight: 700;
+    }
+
+    .content-wrapper {
+      padding: 15px;
+    }
+
+    ul {
+      li {
+        margin-bottom: 15px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .content {
+      > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .button,
+    #{$all-buttons} {
+      width: 100%;
+    }
+  }
+}
+
+// Tabs primary.
+
+ul.tabs.primary {
+  border-bottom: 1px solid $grey-color-border;
+  margin: 15px 0;
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+  }
+}
+
+// Header.
+
+$topbar-height: 50px;
+
+// Region header.
+
+.header_wrapper {
+  background: $dark-color-bg url("../img/bg.jpg") repeat-y fixed center top;
+  padding: 30px 0;
+  color: white;
+
+  .region-header {
+    .block {
+      @include to-margin-last();
+      float: left;
+    }
+  }
+
+  .region-action {
+    display: table;
+    height: 100%;
+
+    .block {
+      @include to-margin-last(left);
+      float: right;
+      display: table;
+      height: 100%;
+
+      @include susy-breakpoint($phone-only-breakpoint) {
+        float: none;
+        text-align: center;
+      }
+
+      .content-wrapper {
+        display: table-cell;
+        vertical-align: middle !important;
+
+        p:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  a {
+    color: white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  // Regions of header.
+
+  .region {
+    @include span(1 of 2);
+
+    &:nth-child(2n) {
+      @include last;
+    }
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      @include span(full);
+    }
+  }
+}
+
+header {
+
+  // Main menu.
+
+  nav#main-menu {
+    width: 100%;
+    height: $topbar-height;
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      height: auto;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu {
+      display: block;
+      height: 100%;
+
+      ul#main-menu-links {
+        text-align: center;
+        height: 100%;
+
+        li {
+          a {
+            display: table-cell;
+            vertical-align: middle;
+            height: $topbar-height;
+            padding: 0 15px;
+            font-weight: 700;
+            font-size: $font-size + 2;
+
+            &:hover,
+            &:focus {
+              background-color: $dark-color-bg;
+            }
+          }
+        }
+      }
+    }
+
+    .mobile {
+      display: none;
+      float: left;
+      height: 100%;
+
+      @include susy-breakpoint($phone-only-breakpoint) {
+        display: block;
+      }
+
+      @include susy-breakpoint($tablet-only-breakpoint) {
+        display: block;
+      }
+
+      a.icon-menu {
+        &:hover,
+        &:focus {
+          text-decoration: none !important;
+        }
+
+        &::before {
+          font-size: 40px;
+          margin-top: 5px;
+          color: white;
+        }
+      }
+    }
+  }
+
+  // Control.
+
+  .controls {
+    background-color: $grey-color-bg;
+    padding: 30px 0;
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      padding: 10px 0;
+    }
+
+    .column {
+      height: 52px;
+      display: table;
+
+      .cell {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    .search {
+      @include span(2 of 3 1/10 last);
+
+      @include susy-breakpoint($phone-only-breakpoint) {
+        @include span(full);
+        margin-bottom: 15px;
+      }
+
+      @include susy-breakpoint($tablet-only-breakpoint) {
+        @include span(full);
+        margin-bottom: 15px;
+      }
+
+      .form-item {
+        @include span(3 of 4 1/10 no-gutters);
+        margin-bottom: 0;
+      }
+
+      .form-actions {
+        @include span(1 of 4 1/10 no-gutters);
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+
+    .logo {
+      @include span(1 of 3 1/10);
+      text-align: left;
+      font-weight: 700;
+      position: relative;
+
+      @include susy-breakpoint($phone-only-breakpoint) {
+        @include span(full);
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      @include susy-breakpoint($tablet-only-breakpoint) {
+        @include span(full);
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      img {
+        max-width: 150px;
+      }
+    }
+  }
+}
+
+// H1 section.
+
+.h1-page {
+  margin: 30px 0;
+
+  h1 {
+    background: $dark-color-bg url("../img/bg.jpg") repeat-y fixed center top;
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0;
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      font-size: 28px;
+    }
+  }
+}
+
+// Main content.
+
+#main-wrapper {
+  padding-bottom: 50px;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    padding-bottom: 10px;
+  }
+}
+
+// Front page.
+
+.region-front {
+  .block {
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+  }
+}
+
+// Footer.
+
+section#over-footer {
+  background-color: $grey-color-bg;
+  padding: 50px 0;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    padding: 10px 0;
+  }
+
+  .block {
+    margin-bottom: $base-margin * 2;
+
+    &:only-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $dark-color-bg;
+  padding: 30px 0;
+  color: white;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    padding: 10px 0;
+  }
+
+  a {
+    color: white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  // Regions footer.
+
+  .region-footer {
+    @include span(full);
+  }
+  .region-footer-left {
+    @include span(1 of 3);
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      @include span(full);
+    }
+  }
+  .region-footer-center {
+    @include span(1 of 3);
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      @include span(full);
+    }
+  }
+  .region-footer-right {
+    @include span(1 of 3 last);
+
+    @include susy-breakpoint($phone-only-breakpoint) {
+      @include span(full);
+    }
+  }
+
+  .region-footer-left,
+  .region-footer-center,
+  .region-footer-right {
+    .block {
+      margin-bottom: $base-margin;
+    }
+  }
+
+  .block {
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
